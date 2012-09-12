@@ -2,10 +2,10 @@
 ;I'm guessing that was the point of this exercise - see 'generality' in code
 ;Resisting urge to combine them
 (define (cube-iter guess x) 
-  ; Calls improve twice. Should use a local variable here.
-  (if (good-enough? (improve guess x) guess)
+  (define new-guess (improve guess x))
+  (if (good-enough? new-guess guess)
     guess
-    (cube-iter (improve guess x)
+    (cube-iter new-guess
                x)))
 
 (define (improve guess x)
